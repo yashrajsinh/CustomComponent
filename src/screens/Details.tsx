@@ -1,38 +1,36 @@
 import React from 'react';
 import { Text, Image, View, StyleSheet } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import Header from '../components/Header';
 
 function Details({ route }: any) {
   const { movie } = route.params;
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView>
-        {/* == Movie Object Data == */}
-
-        <View style={styles.card}>
-          <Text
-            style={{
-              fontSize: 28,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              margin: 5,
-            }}
-          >
-            {movie.movieTitle}
-          </Text>
-          <Image style={styles.imgStyle} source={{ uri: movie.imgURL }} />
-          <Text
-            style={{
-              fontSize: 18,
-              margin: 5,
-            }}
-          >
-            {movie.movieDescription}
-          </Text>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <>
+      <Header title="Data" isVisible={true} />
+      <View style={styles.card}>
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: 'bold',
+            textAlign: 'center',
+            margin: 5,
+          }}
+        >
+          {movie.movieTitle}
+        </Text>
+        <Image style={styles.imgStyle} source={{ uri: movie.imgURL }} />
+        <Text
+          style={{
+            fontSize: 18,
+            margin: 5,
+          }}
+        >
+          {movie.movieDescription}
+        </Text>
+      </View>
+    </>
   );
 }
 
