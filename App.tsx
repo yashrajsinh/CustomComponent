@@ -20,7 +20,6 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Header title="Movies" isVisible={false} />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Movies"

@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { MovieModel } from '../model/MoviesModel';
+import Header from '../components/Header';
 
 //Array of MovieModel to store data
 const movies: MovieModel[] = [
@@ -64,35 +65,38 @@ const movies: MovieModel[] = [
 
 const Movies = ({ navigation }: any) => {
   return (
-    <FlatList
-      contentContainerStyle={{ padding: 16 }}
-      data={movies}
-      renderItem={({ item }) => (
-        <Pressable
-          onPress={() =>
-            navigation.navigate('Details', {
-              movie: item,
-            })
-          }
-        >
-          <View style={styles.card}>
-            <Image
-              source={{ uri: item.imgURL }}
-              style={styles.image}
-              resizeMode="cover"
-            />
+    <>
+      <Header title="Movies" isVisible={false} />
+      <FlatList
+        contentContainerStyle={{ padding: 16 }}
+        data={movies}
+        renderItem={({ item }) => (
+          <Pressable
+            onPress={() =>
+              navigation.navigate('Details', {
+                movie: item,
+              })
+            }
+          >
+            <View style={styles.card}>
+              <Image
+                source={{ uri: item.imgURL }}
+                style={styles.image}
+                resizeMode="cover"
+              />
 
-            <View style={styles.textContainer}>
-              <Text style={styles.title} numberOfLines={2}>
-                {item.movieTitle}
-              </Text>
+              <View style={styles.textContainer}>
+                <Text style={styles.title} numberOfLines={2}>
+                  {item.movieTitle}
+                </Text>
 
-              <Text style={styles.description}>{item.movieDescription}</Text>
+                <Text style={styles.description}>{item.movieDescription}</Text>
+              </View>
             </View>
-          </View>
-        </Pressable>
-      )}
-    />
+          </Pressable>
+        )}
+      />
+    </>
   );
 };
 

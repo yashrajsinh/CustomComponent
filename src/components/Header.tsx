@@ -1,15 +1,22 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from 'react-native';
 import React, { useState } from 'react';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-useState;
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Header({ title, isVisible }: any) {
-  const [pageTitle, setTitle] = useState('');
+  const navigation = useNavigation();
   return (
     <SafeAreaView>
       <View style={styles.mainView}>
         {isVisible ? (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Image
               style={styles.imgIcon}
               source={{
@@ -18,7 +25,16 @@ export default function Header({ title, isVisible }: any) {
             />
           </TouchableOpacity>
         ) : null}
-        <Text>{title}</Text>
+        <Text
+          style={{
+            flex: 1,
+            textAlign: 'center',
+            fontSize: 20,
+            fontWeight: 'bold',
+          }}
+        >
+          {title}
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -26,6 +42,7 @@ export default function Header({ title, isVisible }: any) {
 const styles = StyleSheet.create({
   mainView: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   imgIcon: {
     height: 50,
