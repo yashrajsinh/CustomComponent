@@ -13,14 +13,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //Screens
 import Details from './src/screens/Details';
 import Movies from './src/data/Movies';
-import Header from './src/components/Header';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Header title="Movies" isVisible={false} />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Movies"

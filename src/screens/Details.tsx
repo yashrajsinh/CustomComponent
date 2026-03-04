@@ -8,18 +8,8 @@ function Details({ route }: any) {
 
   return (
     <>
-      <Header title="Data" isVisible={true} />
+      <Header title={movie.movieTitle} isVisible={true} />
       <View style={styles.card}>
-        <Text
-          style={{
-            fontSize: 28,
-            fontWeight: 'bold',
-            textAlign: 'center',
-            margin: 5,
-          }}
-        >
-          {movie.movieTitle}
-        </Text>
         <Image style={styles.imgStyle} source={{ uri: movie.imgURL }} />
         <Text
           style={{
