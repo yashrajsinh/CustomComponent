@@ -13,7 +13,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //Screens
 import Details from './src/screens/Details';
 import Movies from './src/data/Movies';
-import Header from './src/components/Header';
 
 const Stack = createNativeStackNavigator();
 

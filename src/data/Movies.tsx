@@ -6,7 +6,6 @@ import {
   Image,
   FlatList,
   Pressable,
-  Alert,
 } from 'react-native';
 import { MovieModel } from '../model/MoviesModel';
 import Header from '../components/Header';
